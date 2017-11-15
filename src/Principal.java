@@ -82,7 +82,7 @@ public class Principal {
      * 
      * Utilizando programação dinâmica para encontrar a subsequência comum mais longa.
      * 
-     * Complexidade O(m*n)
+     * O Tempo de execução é Theta(m*n)
      * 
      * @param X Subsequência 1
      * @param Y Subsequência 2
@@ -120,7 +120,7 @@ public class Principal {
     /**
      * Imprime a subsequencia comum mais longa.
      * 
-     * Complexidade de tempo O(m+n)
+     * O procedimento demora o tempo O(m+n)
      * 
      * @param b Matriz da solução ótima
      * @param X Sequência a ser verificada
