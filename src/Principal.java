@@ -4,6 +4,7 @@
  * Programa de Pós-Graduação em Ciências da Computação - PROPG
  * Disciplinas: Projeto e Análise de Algoritmos
  * Prof Alexandre Gonçalves da Silva 
+ * Baseado nos slides 75 da aula do dia 03/11/2017 
  *
  * Subsequência comum mais longa 
  * Longest Comum Subsequence(LCS)
@@ -17,8 +18,8 @@
 public class Principal {
 
     static final int DIAGONAL=1;
-    static final int PARACIMA=2;
-    static final int VOLTAR=3;
+    static final int ACIMA=2;
+    static final int ANTERIOR=3;
     
     //Matrizes auxiliares
     static int[][] b;
@@ -64,10 +65,10 @@ public class Principal {
                     case DIAGONAL:                        
                         seta = 8598;
                         break;
-                    case PARACIMA:
+                    case ACIMA:
                         seta = 8593;
                         break;
-                    case VOLTAR:
+                    case ANTERIOR:
                         seta = 8592;                        
                         break;
                 }                 
@@ -81,6 +82,8 @@ public class Principal {
      * Encontra a subsequência comum mais longa.
      * 
      * Utilizando programação dinâmica para encontrar a subsequência comum mais longa.
+     * 
+     * Atualiza a matric c e b com o resultado
      * 
      * O Tempo de execução é Theta(m*n)
      * 
@@ -101,16 +104,21 @@ public class Principal {
         }
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {               
+                //Elemento da linha igual a coluna então soma +1 ao elemento 
+                //da linha e coluna anterior (DIAGONAL)
                 if (X.charAt(i-1) == Y.charAt(j-1)) {                    
                     c[i][j] = c[i - 1][j - 1] + 1;
                     b[i][j] = DIAGONAL;
                 } else {                  
+                    //Se o elemento da linha anterior for maior ou igual elemento da coluna anterior
+                    //Pega o elemento da linha anterior(ACIMA)
                     if (c[i - 1][j] >= c[i][j - 1]) {
                         c[i][j] = c[i - 1][j];
-                        b[i][j] = PARACIMA;
+                        b[i][j] = ACIMA;
                     } else {                        
+                       //Caso contrário pega o elemento da coluna anterior(ANTERIOR)
                        c[i][j] = c[i][j - 1];                        
-                       b[i][j] = VOLTAR;
+                       b[i][j] = ANTERIOR;
                     }
                 }
             }
@@ -118,7 +126,7 @@ public class Principal {
     }
 
     /**
-     * Imprime a subsequencia comum mais longa.
+     * Imprime a subsequência comum mais longa.
      * 
      * O procedimento demora o tempo O(m+n)
      * 
@@ -135,7 +143,7 @@ public class Principal {
             printLCS(b, X, i - 1, j - 1);
             System.out.print(X.charAt(i - 1));
         } else {
-            if (b[i][j] == PARACIMA ) {
+            if (b[i][j] == ACIMA ) {
                 printLCS(b, X, i - 1, j);
             } else {
                 printLCS(b, X, i, j - 1);        
@@ -148,6 +156,10 @@ public class Principal {
         //Problema Livro Cormen pag 285
         String X = "ABCBDAB";
         String Y = "BDCABA";
+        
+        //Sequencia do slide 76 de 03/11/2017
+        //String X = "abcb";
+        //String Y = "bdcab";
         
         //Problema Prova Prof Meidanis
         //String X = "ATGCGTACT";
