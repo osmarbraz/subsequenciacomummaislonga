@@ -34,7 +34,7 @@ public class Principal {
      * @param X Subsequência 1
      * @param Y Subsequência 2
      */
-    public static void imprimirTabelas(String X, String Y) {
+    public static void imprimirTabela(String X, String Y) {
         int m = X.length()+1; //Linhas
         int n = Y.length()+1; //Colunas        
         
@@ -171,7 +171,7 @@ public class Principal {
         subsequenciaComunMaisLonga(X, Y);
         
         //Mostra as tabelas
-        imprimirTabelas(X,Y);
+        imprimirTabela(X,Y);
         
         //Mostra o resultado
         System.out.println();
