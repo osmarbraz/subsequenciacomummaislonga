@@ -153,7 +153,7 @@ public class Principal {
         //String X = "ATGCGTACT";
         //String Y = "CTGATAGAT";
 
-        System.out.println("Subsequencia Comun mais longa");
+        System.out.println("Subsequência Comun mais longa");
         
         //Calcula a subsequência
         subsequenciaComunMaisLonga(X, Y);
