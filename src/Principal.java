@@ -4,6 +4,8 @@
  * Programa de Pós-Graduação em Ciências da Computação - PROPG
  * Disciplinas: Projeto e Análise de Algoritmos
  * Prof Alexandre Gonçalves da Silva 
+ *
+ * Subsequência comum mais longa (LCS)
  * Página 285 Cormen 3 ed
  */
 
@@ -16,6 +18,7 @@ public class Principal {
     static final int PARACIMA=2;
     static final int VOLTAR=3;
     
+    //Matrizes auxiliares
     static int[][] b;
     static int[][] c;
 
@@ -69,8 +72,8 @@ public class Principal {
      * @param Y Subsequência 1
      */
     public static void subsequenciaComunMaisLonga(String X, String Y) {
-        int m = X.length()+1;
-        int n = X.length()+1;
+        int m = X.length()+1; //Colunas
+        int n = X.length()+1; //Linhas
         b = new int[m][n];
         c = new int[m][n];
         for (int i = 0; i < m; i++) {
@@ -118,12 +121,10 @@ public class Principal {
                 printLCS(b, X, i, j - 1);        
             }
         }               
-    }
-        
-        
+    }   
     
     public static void main(String args[]) {
-        //Subsequências a serem analisada  
+        //Subsequências a serem analisadas
         String X = "ABCDAB";
         String Y = "BDCABA";
 
@@ -134,12 +135,11 @@ public class Principal {
         
         //Mostra as tabelas
         imprimirTabelas(X,Y);
-                
+        
         //Mostra o resultado
         System.out.println();
         System.out.println("Resultado LCS:");
         printLCS(b,X,X.length(),Y.length());
         System.out.println();
-
     }
 }
