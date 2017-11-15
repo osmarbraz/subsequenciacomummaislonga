@@ -38,7 +38,7 @@ public class Principal {
         int n = Y.length()+1; //Colunas        
         
         System.out.println("Tabela Calculada para o LCS de X e Y ");
-        System.out.printf("\t j \t");
+        System.out.printf("c \t j \t");
         for ( int j = 0; j < n; j++ ) {            
             System.out.printf(" %d \t", j);             
         }               
