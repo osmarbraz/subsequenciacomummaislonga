@@ -5,7 +5,9 @@
  * Disciplinas: Projeto e Análise de Algoritmos
  * Prof Alexandre Gonçalves da Silva 
  *
- * Subsequência comum mais longa (LCS)
+ * Subsequência comum mais longa 
+ * Longest Comum Subsequence(LCS)
+ *
  * Página 285 Cormen 3 ed
  */
 
@@ -23,60 +25,75 @@ public class Principal {
     static int[][] c;
 
     /**
-     * Imprime a tabela calculada.
+     * Mostra na tela tabela calculada.
+     * 
+     * Utiliza as matrizes c e b calculadas pela operação subsequenciaComunMaisLonga.
+     * Conforme exemplo página 288 Livro Cormen 3 ed.
      *
      * @param X Subsequência 1
-     * @param Y Subsequência 1
+     * @param Y Subsequência 2
      */
     public static void imprimirTabelas(String X, String Y) {
-        int m = X.length()+1; //Colunas
-        int n = Y.length()+1; //Linhas        
+        int m = X.length()+1; //Linhas
+        int n = Y.length()+1; //Colunas        
         
-        System.out.printf("\t \t");
-        System.out.printf("\t yi \t");
-        for ( int j = 0; j < n-1; j++ ) {
-            System.out.printf("\t %s \t", Y.charAt(j));             
+        System.out.println("Tabela Calculada para o LCS de X e Y ");
+        System.out.printf("\t j \t");
+        for ( int j = 0; j < n; j++ ) {            
+            System.out.printf(" %d \t", j);             
         }               
-        System.out.println();
+        System.out.println(); //Pula a linha       
+        
+        System.out.printf("i\t");        
+        System.out.printf("\t y[j] \t");
+        for ( int j = 0; j < n-1; j++ ) {            
+            System.out.printf(" %s \t", Y.charAt(j));             
+        }               
+        System.out.println();//Pula a linha
         
         for (int i = 0; i < m; i++) {
+            System.out.printf("%d \t",i);
             if (i==0){            
-                System.out.printf("\t xi \t");
+                System.out.printf("x[i] \t");
             } else {
-                System.out.printf("\t %s \t", X.charAt(i-1));
-            }
-            //System.out.printf("\t 0 \t");
-            for (int j = 0; j < n; j++) {                
-                char letra = ' ';                
+                System.out.printf("%s \t", X.charAt(i-1));
+            }            
+            for (int j = 0; j < n; j++) {                                
+                char seta = ' ';
                 switch ( b[i][j] ) {
-                    case DIAGONAL:
-                        letra = 'D';
+                    case DIAGONAL:                        
+                        seta = 8598;
                         break;
                     case PARACIMA:
-                        letra = 'C';
+                        seta = 8593;
                         break;
                     case VOLTAR:
-                        letra = 'V';
+                        seta = 8592;                        
                         break;
                 }                 
-                System.out.printf("\t %d %s \t", c[i][j], letra);                                
+                System.out.printf(" %d %s \t", c[i][j], seta);                                
             }
             System.out.println();
-        }
-        System.out.println("Legenda: D=Diagonal, C=Cima e V=Voltar");
-    }
-
+        }        
+    }  
+    
     /**
      * Encontra a subsequência comum mais longa.
+     * 
+     * Utilizando programação dinâmica para encontrar a subsequência comum mais longa.
+     * 
+     * Complexidade O(m*n)
+     * 
      * @param X Subsequência 1
-     * @param Y Subsequência 1
+     * @param Y Subsequência 2
      */
     public static void subsequenciaComunMaisLonga(String X, String Y) {
-        int m = X.length()+1; //Colunas
-        int n = X.length()+1; //Linhas
+        int m = X.length()+1; //Linhas
+        int n = Y.length()+1; //Colunas
+        //Inicializa os vetores do resultado
         b = new int[m][n];
         c = new int[m][n];
-        for (int i = 0; i < m; i++) {
+        for (int i = 1; i < m; i++) {
             c[i][0] = 0;
         }
         for (int j = 0; j < n; j++) {
@@ -87,7 +104,7 @@ public class Principal {
                 if (X.charAt(i-1) == Y.charAt(j-1)) {                    
                     c[i][j] = c[i - 1][j - 1] + 1;
                     b[i][j] = DIAGONAL;
-                } else {
+                } else {                  
                     if (c[i - 1][j] >= c[i][j - 1]) {
                         c[i][j] = c[i - 1][j];
                         b[i][j] = PARACIMA;
@@ -102,6 +119,9 @@ public class Principal {
 
     /**
      * Imprime a subsequencia comum mais longa.
+     * 
+     * Complexidade de tempo O(m+n)
+     * 
      * @param b Matriz da solução ótima
      * @param X Sequência a ser verificada
      * @param i Posição em sequência X
@@ -125,10 +145,15 @@ public class Principal {
     
     public static void main(String args[]) {
         //Subsequências a serem analisadas
-        String X = "ABCDAB";
+        //Problema Livro Cormen pag 285
+        String X = "ABCBDAB";
         String Y = "BDCABA";
+        
+        //Problema Prova Prof Meidanis
+        //String X = "ATGCGTACT";
+        //String Y = "CTGATAGAT";
 
-        System.out.println("Subsequencia Comun mais longa:");
+        System.out.println("Subsequencia Comun mais longa");
         
         //Calcula a subsequência
         subsequenciaComunMaisLonga(X, Y);
