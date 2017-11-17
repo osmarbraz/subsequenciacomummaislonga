@@ -175,7 +175,7 @@ public class Principal {
         
         //Mostra o resultado
         System.out.println();
-        System.out.println("Resultado LCS:");
+        System.out.print("Resultado LCS:");
         printLCS(b,X,X.length(),Y.length());
         System.out.println();
     }
