@@ -4,12 +4,13 @@
  * Programa de Pós-Graduação em Ciências da Computação - PROPG
  * Disciplinas: Projeto e Análise de Algoritmos
  * Prof Alexandre Gonçalves da Silva 
+ *
  * Baseado nos slides 75 da aula do dia 03/11/2017 
  *
- * Subsequência comum mais longa 
- * Longest Comum Subsequence(LCS)
- *
  * Página 285 Cormen 3 ed
+ *
+ * Subsequência comum mais longa/Longest Comum Subsequence(LCS)
+ * 
  */
 
 /**
@@ -165,7 +166,7 @@ public class Principal {
         //String X = "ATGCGTACT";
         //String Y = "CTGATAGAT";
 
-        System.out.println(">>> Subsequência Comun mais longa <<<");
+        System.out.println(">>> Subsequência Comun mais longa/Longest Comum Subsequence(LCS) <<<");
         
         //Calcula a subsequência
         subsequenciaComunMaisLonga(X, Y);
