@@ -165,7 +165,7 @@ public class Principal {
         //String X = "ATGCGTACT";
         //String Y = "CTGATAGAT";
 
-        System.out.println("Subsequência Comun mais longa");
+        System.out.println(">>> Subsequência Comun mais longa <<<");
         
         //Calcula a subsequência
         subsequenciaComunMaisLonga(X, Y);
@@ -175,8 +175,8 @@ public class Principal {
         
         //Mostra o resultado
         System.out.println();
-        System.out.println("O Tamanho da maior subsequência comum:" + c[X.length()-1][Y.length()-1]);
-        System.out.print("A maior subsequência comum:");
+        System.out.println("O Tamanho da subsequência comum mais longa:" + c[X.length()-1][Y.length()-1]);
+        System.out.print("A subsequência comum mais longa:");
         printLCS(b,X,X.length(),Y.length());
         System.out.println();
     }
