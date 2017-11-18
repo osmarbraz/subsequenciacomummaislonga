@@ -175,7 +175,8 @@ public class Principal {
         
         //Mostra o resultado
         System.out.println();
-        System.out.print("Resultado LCS:");
+        System.out.println("O Tamanho da maior subsequência comum:" + c[X.length()-1][Y.length()-1]);
+        System.out.print("A maior subsequência comum:");
         printLCS(b,X,X.length(),Y.length());
         System.out.println();
     }
