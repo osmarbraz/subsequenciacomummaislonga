@@ -7,7 +7,7 @@
  *
  * Baseado nos slides 75 da aula do dia 03/11/2017 
  *
- * Página 285 Cormen 3 ed
+ * Página 285 Thomas H. Cormen 3 ed
  *
  * Subsequência comum mais longa/Longest Comum Subsequence(LCS)
  * 
@@ -30,7 +30,7 @@ public class Principal {
      * Mostra na tela tabela calculada.
      * 
      * Utiliza as matrizes c e b calculadas pela operação subsequenciaComunMaisLonga.
-     * Conforme exemplo página 288 Livro Cormen 3 ed.
+     * Conforme exemplo página 288 Livro Thomas H. Cormen 3 ed.
      *
      * @param X Subsequência 1
      * @param Y Subsequência 2
@@ -154,7 +154,7 @@ public class Principal {
     
     public static void main(String args[]) {
         //Subsequências a serem analisadas
-        //Problema Livro Cormen pag 285
+        //Problema Livro Thomas H. Cormen pag 285
         String X = "ABCBDAB";
         String Y = "BDCABA";
         
